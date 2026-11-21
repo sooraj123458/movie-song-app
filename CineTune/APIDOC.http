@@ -1,0 +1,225 @@
+#=========================================AdminAccountCreate==============================================================
+
+#API call for create Account for Admin
+POST http://127.0.0.1:8000/accounts/register/
+Content-Type: application/json
+
+{
+    "username":"Admin1",
+    "email":"Admin1@gmail.com",
+    "password":"Admin1@123",
+    "phone":"8943360438"
+}
+
+
+#=======================================UserAccountCreate==================================================================
+
+#api call for create account for user
+###
+POST http://127.0.0.1:8000/accounts/user/register/
+Content-Type: application/json
+
+{
+    "username":"sooraj",
+    "email":"sooraj@email.com",
+    "password":"sooraj@123",
+    "phone":"8943350411"
+}
+
+#============================================Token=================================================================
+
+#API call for Token
+###
+POST http://127.0.0.1:8000/accounts/token/
+Content-Type: application/json
+
+{
+    "username":"Admin1",
+    "password":"Admin1@123"
+   
+}
+
+#============================================CreateMovie==================================================================
+
+#API call for create movie
+###
+POST http://127.0.0.1:8000/movies/add/
+Content-Type: application/json
+Authorization: Token b66ae6b9c754ce95b91eb21998d4d528dc965158
+
+ {
+    "title": "Charlie",
+    "description": "A young woman becomes fascinated by an adventurous man's life and follows the clues he leaves behind.",
+    "release_date": "2015-12-24",
+    "language": "Malayalam",
+    "genre": "Romance, Drama, Adventure",
+    "director": "Martin Prakkat"
+  }
+
+#Api call for listing all movies for athonticated users
+###
+GET http://127.0.0.1:8000/movies/list/
+Accept: application/json
+Authorization: Token b66ae6b9c754ce95b91eb21998d4d528dc965158
+
+#========================================MovieRetriveUpdateDelete=============================================================
+
+#API call for retriving specific movies for authonticated users
+###
+GET http://127.0.0.1:8000/movies/retr/2/
+Accept: application/json
+Authorization: Token 7797493f0ba4c9daa03675704777471306bcc09b
+
+
+#API call for updating specific movies for authonticated users
+###
+PUT http://127.0.0.1:8000/movies/up/del/1/
+Content-Type:  application/json
+Authorization: Token 5a660871f8de04dd0a466ee6cb113d464cbc2aba 
+
+{
+  "id": 2,
+  "created_by": "admin1",
+  "title": "Leo",
+  "description": "A peaceful café owner is forced to confront his violent past when his identity becomes known.",
+  "release_date": "2023-10-19",
+  "language": "Tamil",
+  "genre": "Action Thriller",
+  "director": "Lokesh Kanagaraj ",
+  "created_at": "2026-10-27T16:03:48.599443Z",
+  "updated_at": "2026-10-27T16:03:48.599496Z"
+}
+
+#API call for deleting movies for authorised admin
+###
+DELETE http://127.0.0.1:8000/movies/up/del/6/
+Accept: application/json
+Authorization: Token 7797493f0ba4c9daa03675704777471306bcc09b 
+
+#==================================================Songs=========================================================
+
+#API call for add songs into movie for authorised admin
+###
+POST http://127.0.0.1:8000/Songs/movie/2/add/song/
+Content-Type: application/json
+Authorization: Token 7797493f0ba4c9daa03675704777471306bcc09b
+
+{
+    "title": "Ente Kannil Ninakkaai",
+    "singer": "Nazriya Nazim, Gopi Sundar",
+    "language": "Malayalam",
+    "music_director": "Gopi Sundar",
+    "lyricist": "Rafeeq Ahamed, Santhosh Varma",
+    "genre": "Romantic",
+    "duration": "00:05:18"
+}
+ 
+
+
+#API call for list all songs for authoried users
+###
+GET http://127.0.0.1:8000/Songs/song/list/
+Accept: application/json
+Authorization: Token 7797493f0ba4c9daa03675704777471306bcc09b 
+
+#==================================================retrive===================================================
+
+#API call for retrive songs for authoried users
+###
+GET http://127.0.0.1:8000/Songs/song/retrive/1/
+Accept: application/json
+Authorization: Token 7797493f0ba4c9daa03675704777471306bcc09b 
+
+
+#===============================================update-delete==============================================
+
+#API call for updating songs
+###
+PUT http://127.0.0.1:8000/Songs/song/update/delete/1/
+Content-Type: application/json
+Authorization: Token 7797493f0ba4c9daa03675704777471306bcc09b
+
+{
+  "id": 1,
+  "created_by": "Admin1",
+  "movie": "Premalu",
+  "title": "Kutty kudiye meetti kudiye",
+  "singer": "Sanjith Hegde",
+  "language": "Malayalam",
+  "music_director": "Vishnu Vijay",
+  "track_number": 1,
+  "lyricist": "Suhail Koya",
+  "genre": "Romantic",
+  "duration": "00:03:05",
+  "created_at": "2026-11-18T12:35:51.484466Z",
+  "updated_at": "2026-11-18T12:35:51.484530Z"
+}
+
+
+#API call for delete songs for admin
+###
+DELETE http://127.0.0.1:8000/Songs/song/update/delete//
+Accept: application/json
+Authorization: Token 7797493f0ba4c9daa03675704777471306bcc09b
+
+#===================================================Review-create==============================================================
+#Api call for create review
+###
+POST http://127.0.0.1:8000/Reviewss/add/
+Content-Type: application/json
+Authorization: Token b66ae6b9c754ce95b91eb21998d4d528dc965158
+
+{
+  "comment":"angamali diaries songs are i more like.",
+  "rating":"⭐⭐⭐"
+}
+
+#_------------------------------------------------list-all-comments-------------------------------------------------
+
+#api call for list all commets for authorised users
+###
+GET http://127.0.0.1:8000/Reviewss/list/
+Accept: application/json
+Authorization: Token b66ae6b9c754ce95b91eb21998d4d528dc965158 
+
+#--------------------------------------------retrive-commnets-------------------------------------------------------
+
+#api call for retrive comments 
+###
+GET http://127.0.0.1:8000/Reviewss/retrive/1/
+Accept: application/json
+Authorization: Token b66ae6b9c754ce95b91eb21998d4d528dc965158
+
+#--------------------------------------------------update-comments---------------------------------------------------
+
+#api call for update for only owend comments
+###
+PUT http://127.0.0.1:8000/Reviewss/update/delete/1/
+Content-Type: application/json
+Authorization: Token b66ae6b9c754ce95b91eb21998d4d528dc965158
+
+{
+  "id": 1,
+  "created_by": "Admin1",
+  "rating": "⭐⭐⭐⭐⭐",
+  "comment": "premalu movie is good movie and songs are very nice . i like it.",
+  "created_at": "2026-11-19T13:07:42.449994Z",
+  "updated_at": "2026-11-19T13:07:42.450045Z"
+}
+
+#--------------------------------------------delete-comments----------------------------------------------------
+
+#api call for delete comments for owned comments
+###
+DELETE http://127.0.0.1:8000/Reviewss/update/delete/2/
+Accept: application/json
+Authorization: Token b66ae6b9c754ce95b91eb21998d4d528dc965158
+
+
+
+#========================================================================================================================================
+
+
+
+
+
